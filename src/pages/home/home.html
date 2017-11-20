@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <ion-toolbar>
+            <ion-title>
+                Accelerometer Collector
+            </ion-title>
+            <ion-buttons end>
+                <button ion-button icon-only (click)="openModal()">
+              <ion-icon name="cog"></ion-icon>
+            </button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item text-center *ngFor="let activity of list" (click)="setActivity(activity)" [style.background-color]="getStyle(activity)">
+            <h1>{{activity}}</h1>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<ion-footer text-center style="background-color:white">
+    <p>{{currentValues}}</p>
+    <button ion-button block [hidden]="sensing" (click)="startSensing()">START SENSING</button>
+    <button ion-button block [hidden]="!sensing" (click)="stopSensing()">STOP SENSING</button>
+    <button ion-button block [disabled]="!dataCollected" (click)="uploadData()">UPLOAD DATA</button>
+</ion-footer>

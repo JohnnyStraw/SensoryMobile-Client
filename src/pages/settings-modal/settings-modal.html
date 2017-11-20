@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">Close</button>
+        </ion-buttons>
+        <ion-title>NgRok ID:</ion-title>
+    </ion-navbar>
+</ion-header>        
+<ion-content padding>
+    <ion-item>
+        <ion-label color="primary">Server:</ion-label>
+        <ion-input placeholder="Server URL" [(ngModel)]="url"></ion-input>
+    </ion-item>
+    <button ion-button color="success" full (click)="save()">Save URL</button>    
+    <button ion-button color="danger" full (click)="dismiss()">Close Modal</button>
+</ion-content>
